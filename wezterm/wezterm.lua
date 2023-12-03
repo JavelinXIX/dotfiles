@@ -77,26 +77,10 @@ local local_config = load_local_config("local")
 --- Config
 ---------------------------------------------------------------
 local config = {
-	font = wezterm.font("Cascadia Mono PL"),
-	-- font_size = 10.0,
-    -- font = wezterm.font("UDEV Gothic 35NFLG"),
+    font = wezterm.font("Hack Nerd Font"),
 	font_size = 12,
-	-- cell_width = 1.1,
-	-- line_height = 1.1,
-	-- font_rules = {
-	-- 	{
-	-- 		italic = true,
-	-- 		font = wezterm.font("Cica", { italic = true }),
-	-- 	},
-	-- 	{
-	-- 		italic = true,
-	-- 		intensity = "Bold",
-	-- 		font = wezterm.font("Cica", { weight = "Bold", italic = true }),
-	-- 	},
-	-- },
 	check_for_updates = false,
 	use_ime = true,
-	-- ime_preedit_rendering = "System",
 	use_dead_keys = false,
 	warn_about_missing_glyphs = false,
 	-- enable_kitty_graphics = false,
@@ -133,7 +117,7 @@ local config = {
 	exit_behavior = "CloseOnCleanExit",
 	tab_bar_at_bottom = false,
 	window_close_confirmation = "AlwaysPrompt",
-	window_background_opacity = 0.97,
+	window_background_opacity = 0.90,
 	disable_default_key_bindings = true,
 	-- visual_bell = {
 	-- 	fade_in_function = "EaseIn",
@@ -150,7 +134,9 @@ local config = {
 	-- https://github.com/wez/wezterm/issues/2756
 	webgpu_preferred_adapter = gpus[1],
 	front_end = "WebGpu",
-    audible_bell = "Disabled"
+    audible_bell = "Disabled",
+    scrollback_lines = 500,
+    enable_scroll_bar = true
 }
 
 local merged_config = utils.merge_tables(config, local_config)
