@@ -5,12 +5,12 @@ cd ~
 echo "[*] Start Deploy"
 
 # Create .config
-if [ -d ~/.config ]; then
+if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
 # Clone dotfiles
-if [ -d ~/dotfiles ]; then
+if [ ! -d ~/dotfiles ]; then
     echo "[+] clone dotfilels"
     git clone https://github.com/JavelinXIX/dotfiles.git
 fi
@@ -25,16 +25,16 @@ fi
 retcode=`pacman -Qs neovim`
 if [[ $retcode -eq 0 ]] then
     echo "[+] Neovim installed"
-    ln -s ~/.config/nvim ~/dotfiles/nvim
-    echo "[+] Link ~/.confing/nvim to ~/dotfiles/nvim"
+    ln -s  ~/dotfiles/nvim ~/.config/nvim
+    echo "[+] Link ~/.config/nvim to ~/dotfiles/nvim"
 fi
 
 # Linking wezterm dotfiles
 retcode=`pacman -Qs wezterm`
 if [[ $retcode -eq 0 ]] then
     echo "[+] Wezterm installed"
-    ln -s ~/.config/wezterm ~/dotfiles/wezterm
-    echo "[+] Link ~/.confing/wezterm to ~/dotfiles/wezterm"
+    ln -s  ~/dotfiles/wezterm ~/.config/wezterm
+    echo "[+] Link ~/.config/wezterm to ~/dotfiles/wezterm"
 fi
 
 echo "[*] Finish!!"
