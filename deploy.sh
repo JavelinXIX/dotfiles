@@ -16,10 +16,10 @@ if [ -d ~/dotfiles ]; then
 fi
 
 # Install oh-my-zsh
-if [ -d ~/.oh-my-zsh ]; then
-    echo "[+] Install oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
+#if [ -d ~/.oh-my-zsh ]; then
+#    echo "[+] oh-my-zsh installed"
+#    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#fi
 
 # Linking neovim dotfiles
 retcode=`pacman -Qs neovim`
