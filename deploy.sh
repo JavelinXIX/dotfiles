@@ -22,16 +22,16 @@ fi
 #fi
 
 # Linking neovim dotfiles
-retcode=`pacman -Qs neovim`
-if [[ $retcode -eq 0 ]] then
+pacman -Qs neovim > /dev/null
+if [[ $? -eq 0 ]] then
     echo "[+] Neovim installed"
     ln -s  ~/dotfiles/nvim ~/.config/nvim
     echo "[+] Link ~/.config/nvim to ~/dotfiles/nvim"
 fi
 
 # Linking wezterm dotfiles
-retcode=`pacman -Qs wezterm`
-if [[ $retcode -eq 0 ]] then
+pacman -Qs wezterm > /dev/null
+if [[ $? -eq 0 ]] then
     echo "[+] Wezterm installed"
     ln -s  ~/dotfiles/wezterm ~/.config/wezterm
     echo "[+] Link ~/.config/wezterm to ~/dotfiles/wezterm"
