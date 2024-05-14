@@ -35,7 +35,6 @@ config.keys = {
     },
 }
 config.enable_scroll_bar = true
-config.default_prog = { 'C:\\Program Files\\Git\\bin\\bash.exe' }
 config.color_scheme = 'nightfox'
 
 return config
