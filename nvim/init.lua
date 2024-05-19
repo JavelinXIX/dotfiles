@@ -12,6 +12,7 @@ vim.cmd("set cursorline")
 vim.cmd("set nowritebackup")
 vim.cmd("set nobackup")
 vim.cmd("set shell=/usr/bin/zsh")
+vim.cmd("set clipboard=unnamedplus")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
