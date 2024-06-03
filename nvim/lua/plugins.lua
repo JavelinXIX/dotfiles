@@ -29,7 +29,7 @@ return {
         config = function()
             local configs  = require("nvim-treesitter.configs")
             configs.setup({
-                ensure_installed = { "rust", "lua", "vim", "html", "python", "typst", "markdown" },
+                ensure_installed = { "rust", "lua", "vim", "html", "python", "typst", "markdown", "toml" },
                 sync_install = false,
                 highlight = { 
                     enable = true,
