@@ -22,7 +22,7 @@ fi
 #fi
 
 # Linking neovim dotfiles
-pacman -Qs neovim > /dev/null
+which zsh > /dev/null
 if [[ $? -eq 0 ]] then
     echo "[+] Neovim installed"
     ln -s  ~/dotfiles/nvim ~/.config/nvim
@@ -30,7 +30,7 @@ if [[ $? -eq 0 ]] then
 fi
 
 # Linking wezterm dotfiles
-pacman -Qs wezterm > /dev/null
+which wezterm > /dev/null
 if [[ $? -eq 0 ]] then
     echo "[+] Wezterm installed"
     ln -s  ~/dotfiles/wezterm ~/.config/wezterm
