@@ -44,6 +44,6 @@ return {
         config = function()
             require('nightfox').setup()
         end
-    }  
+    }
 }
 

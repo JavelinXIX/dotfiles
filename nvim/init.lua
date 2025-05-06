@@ -13,6 +13,14 @@ vim.cmd("set nowritebackup")
 vim.cmd("set nobackup")
 vim.cmd("set shell=/usr/bin/zsh")
 vim.cmd("set clipboard=unnamedplus")
+vim.opt.laststatus = 3
+
+-- keymap
+vim.keymap.set("n", "<C-Up>",    ":resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Down>",  ":resize +2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Left>",  ":vertical resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { noremap = true, silent = true })
+
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
