@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-    imports = [./hardware-configuration.nix];
+    imports = [
+        ./hardware-configuration.nix
+    ];
 
     # Boot Loader
     boot.loader.systemd-boot.enable = true;
@@ -10,11 +12,11 @@
 
 
     # Negworking
-    networking.hostname = "nixos";
-    network.wireless.enable = true;
+    networking.hostName = "nixos";
+    networking.wireless.enable = true;
 
     # Time Zone
-    time.timeZone = "Asia/Tokyou";
+    time.timeZone = "Asia/Tokyo";
 
     # Locale
     i18n.defaultLocale = "en_US.UTF-8";
@@ -60,7 +62,12 @@
     services.xserver.displayManager.lightdm.greeters.slick.enable = true;
 
     services.dbus.enable = true;
-    services.polkit.enable = true;
+
+    # Configure keymap in X11
+    services.xserver.xkb = {
+      layout = "jp";
+      variant = "";
+    };
 
     # Sound
     services.pipewire = {
@@ -78,6 +85,18 @@
 	    "audio"
         ];
     };
+    
+    # Programs
+    environment.systemPackages = with pkgs; [
+        neovim
+	curl
+	wget
+	zsh
+	tmux
+    ];
 
-
+    programs.firefox.enable = true;
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    
+    system.stateVersion = "25.05"; # Did you read the comment?
 }
