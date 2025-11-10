@@ -38,9 +38,8 @@
     fonts = {
         packages = (with pkgs; [
             noto-fonts
-            noto-fonts-extra
             noto-fonts-cjk-sans
-            noto-fonts-emoji
+            noto-fonts-color-emoji
 	]);
 
 	fontconfig = {
@@ -89,14 +88,17 @@
     # Programs
     environment.systemPackages = with pkgs; [
         neovim
-	curl
-	wget
-	zsh
-	tmux
+        curl
+        gcc
+        wget
+        zsh
+        tmux
     ];
 
     programs.firefox.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+    nixpkgs.config.allowUnfree = true;
     
     system.stateVersion = "25.05"; # Did you read the comment?
 }
