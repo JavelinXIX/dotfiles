@@ -22,7 +22,7 @@ fi
 #fi
 
 # Linking neovim dotfiles
-which zsh > /dev/null
+which nvim > /dev/null
 if [[ $? -eq 0 ]] then
     echo "[+] Neovim installed"
     ln -s  ~/dotfiles/nvim ~/.config/nvim
