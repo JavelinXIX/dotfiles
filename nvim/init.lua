@@ -11,7 +11,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("set cursorline")
 vim.cmd("set nowritebackup")
 vim.cmd("set nobackup")
-vim.cmd("set shell=/usr/bin/zsh")
+vim.cmd("set shell=zsh")
 vim.cmd("set clipboard=unnamedplus")
 vim.opt.laststatus = 3
 

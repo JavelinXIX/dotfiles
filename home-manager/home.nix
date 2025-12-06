@@ -7,11 +7,17 @@
     home.homeDirectory = "/home/tomoya-f";
 
     home.packages = with pkgs; [
-	git
-	google-chrome
-	rofi
-	wezterm
-	unzip
+        git
+        google-chrome
+        rofi
+        wezterm
+        unzip
+        virt-manager
+        virt-viewer
+    ];
+
+    imports = [
+        ./xfce.nix
     ];
 
     home.stateVersion = "25.05";

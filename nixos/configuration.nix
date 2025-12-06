@@ -10,10 +10,20 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.timeout = 0;
 
+    #Virtualization
+    virtualisation.libvirtd = {
+        enable = true;
+        qemuRunAsRoot = false;
+        qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    };
+
 
     # Negworking
     networking.hostName = "nixos";
-    networking.wireless.enable = true;
+    networking.networkmanager.enable = true;
+
+#    networking.wireless.enable = true;
+#    networking.useDHCP = true;
 
     # Time Zone
     time.timeZone = "Asia/Tokyo";
@@ -24,13 +34,13 @@
     # Input Method
     i18n.inputMethod ={
         enable = true;
-	type = "fcitx5";
-	fcitx5 = {
-	    addons = with pkgs; [
-	        fcitx5-mozc
-		fcitx5-gtk 
-		fcitx5-nord
-	    ];
+        type = "fcitx5";
+        fcitx5 = {
+            addons = with pkgs; [
+                fcitx5-mozc
+                fcitx5-gtk 
+                fcitx5-nord
+	        ];
         };
     };
 
@@ -65,6 +75,7 @@
     # Configure keymap in X11
     services.xserver.xkb = {
       layout = "jp";
+      options = "ctrl:nocaps";
       variant = "";
     };
 
@@ -79,9 +90,11 @@
     users.users.tomoya-f = {
         isNormalUser = true;
         extraGroups = [ 
-	    "wheel"
-	    "networkmanager"
-	    "audio"
+            "wheel"
+            "networkmanager"
+            "audio"
+            "libvirtd"
+            "kvm"
         ];
     };
     
@@ -93,6 +106,7 @@
         wget
         zsh
         tmux
+        xclip
     ];
 
     programs.firefox.enable = true;

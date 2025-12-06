@@ -12,11 +12,12 @@
             system = "x86_64-linux";
             modules = [
                 /home/tomoya-f/dotfiles/nixos/configuration.nix
-	        home-manager.nixosModules.home-manager {
+    	        home-manager.nixosModules.home-manager {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-	    	    home-manager.users.tomoya-f = import ./home-manager/home.nix;
-	    	}
+    	    	    home-manager.users.tomoya-f = import ./home-manager/home.nix;
+                    home-manager.backupFileExtension = "backup";
+	    	    }
             ];
         };
     };
