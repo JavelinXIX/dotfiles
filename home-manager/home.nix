@@ -14,6 +14,8 @@
         unzip
         virt-manager
         virt-viewer
+        ffmpeg
+        codex
     ];
 
     imports = [
